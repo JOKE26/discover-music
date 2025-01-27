@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Ceci est une petite app web NextJs qui grâce à l'API de spotify permet de récupérer des morceaux, des titres, des albums, des artistes et de les affiché sur l'app
 
 ## Getting Started
 
