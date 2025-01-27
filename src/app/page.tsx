@@ -91,13 +91,24 @@ export default function Home() {
         </div>
       )}
       {error && <p className="text-red-500 mt-4">{error}</p>}
-      {results.length === 0 && !error && (
+      {code && results.length === 0 && !error && (
         <p className="text-gray-500 mt-4">Aucun résultat trouvé</p>
       )}
-      <ul className="mt-4">
+      <ul className="mt-6 grid grid-cols-4 gap-4">
         {results.map((track) => (
           <li key={track.id} className="mb-2">
-            <strong>{track.name}</strong>
+            <strong>{track.name}</strong> -{" "}
+            {track.artists.map((artist: any) => artist.name).join(", ")}
+            <br />
+            <small>{track.album.name}</small>
+            <br />
+            {track.album.images.length > 0 && (
+              <img
+                src={track.album.images[0].url}
+                alt={track.album.name}
+                className="w-40 h-40 mt-2"
+              />
+            )}
           </li>
         ))}
       </ul>
