@@ -62,25 +62,27 @@ export default function Home() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">
+      <h1 className="text-2xl font-bold mb-4 text-center">
         Bienvenue sur ma plateforme de découverte musicale
       </h1>
       {!code && (
-        <button
-          onClick={handleLogin}
-          className="bg-green-500 text-white p-2 rounded"
-        >
-          Se connecter avec Spotify
-        </button>
+        <div className="flex justify-center">
+          <button
+            onClick={handleLogin}
+            className="bg-green-500 text-white p-2 rounded gird"
+          >
+            Se connecter avec Spotify
+          </button>
+        </div>
       )}
       {code && (
-        <div>
+        <div className="flex justify-center">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Rechercher un artiste ou un morceau"
-            className="border p-2 rounded"
+            className="border p-2 rounded w-96"
           />
           <button
             onClick={searchTracks}
@@ -90,13 +92,13 @@ export default function Home() {
           </button>
         </div>
       )}
-      {error && <p className="text-red-500 mt-4">{error}</p>}
+      {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
       {code && results.length === 0 && !error && (
-        <p className="text-gray-500 mt-4">Aucun résultat trouvé</p>
+        <p className="text-gray-500 mt-4 text-center">Aucun résultat trouvé</p>
       )}
       <ul className="mt-6 grid grid-cols-4 gap-4">
         {results.map((track) => (
-          <li key={track.id} className="mb-2">
+          <li key={track.id} className="mb-2 bg-blue-300 p-4 border rounded-lg">
             <strong>{track.name}</strong> -{" "}
             {track.artists.map((artist: any) => artist.name).join(", ")}
             <br />
